@@ -1,7 +1,7 @@
 # labroot
 
 Scripts and Macros (in CLING-interpreted C++) for Data Analysis using CERN's ROOT Framework (https://root.cern.ch).
-The "inspiration" comes from a University class that I am attending: Optics Laboratory and Computational Data Analysis.
+<br />The "inspiration" comes from a University class that I am attending: Optics Laboratory and Computational Data Analysis.
 
 Some code comes or is adapted from Giuseppe Della Ricca's lectures website: http://www.infis.univ.trieste.it/~dellaric/
 
