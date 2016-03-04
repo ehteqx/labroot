@@ -6,7 +6,7 @@ Scripts and Macros (in CLING-interpreted C++) for Data Analysis using CERN's ROO
 Some code comes or is adapted from Giuseppe Della Ricca's lectures website: http://www.infis.univ.trieste.it/~dellaric/
 
 LICENSE:
-© 2016 Giuseppe Della Ricca - All rights reserved.
+<br />© 2016 Giuseppe Della Ricca - All rights reserved.
 <br />© 2016 Emanuele Ballarin - All rights reserved.
 
 Permissions beyond the scope of this license could be obtained by directly contacting the Authors.
