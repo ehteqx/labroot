@@ -5,7 +5,7 @@
 double fitfunc(double* x, double* p) {		// USER-DEFINED FIT ROUTINE
 
    double fitval;
-   
+
 // Modify as needed: x[0] = x value; p[i] = i-th parameter // EDIT ALSO THE LINE WITH ### (Guesses and Names)
 //	EXPONENTIAL:
 //	fitval = p[0] + exp(p[1] +(x[0])*(p[2]));	// PARAM: 3
@@ -13,7 +13,7 @@ double fitfunc(double* x, double* p) {		// USER-DEFINED FIT ROUTINE
 	fitval = p[0] + x[0] * p[1];				// PARAM: 2
 // 	HYPERB.
 //  fitval = p[0] + p[1]/(x[0]+p[2])**2; 		// PARAM: 3
-  									
+
 
    return fitval;
 
@@ -49,7 +49,7 @@ void fitxy() {		// DATA-INPUT ROUTINE
    in.close();		// Close file
 
    printf(" Found %d points\n", npt);		// Output: Number of points found in file
-   
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    TCanvas* c1 = new TCanvas("c1", "Points, Errors and Best Fit", 0, 0, 500, 500);
@@ -60,8 +60,8 @@ void fitxy() {		// DATA-INPUT ROUTINE
 
    // INITIAL GUESSES AND PARAMETER NAMES ################################################################
    f1->SetParameters(0.1, 0.1);
-   f1->SetParNames("y off", "xmult");   
-   
+   f1->SetParNames("y off", "xmult");
+
    // Print first graph (Points, Fit, Errors)
    gStyle->SetOptFit(kTRUE);
 
@@ -75,7 +75,6 @@ void fitxy() {		// DATA-INPUT ROUTINE
    gr->Draw("AP");
    f1->SetLineColor(kRed);
    f1->Draw("same");
-   
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   TH1F* h1 = new TH1F("h1", "Regression Residues", 20, -10.0, 10.0); // Graph of regression residues (n°BINS, START, STOP)
@@ -96,7 +95,7 @@ for (int i=0; i < npt; i++) {
 
    c2->cd();
    h1->Fit(f);
-   
+
 // Linearization of residues...
    float y2[mpt];
 
@@ -106,14 +105,14 @@ for (int i=0; i < npt; i++) {
 
 	// Linear residues plot
    TCanvas* c3 = new TCanvas("c3", "Regression Residues (linearized)", 300, 300, 500, 500);
-   
+
    TGraphErrors* gr1 = new TGraphErrors(npt, x1, y2, 0, x4b);	// WITH ERROR ON X AND Y
 
 
    TF1 *g1 = new TF1("g1", "pol1", 0.00, 10.00);	// First-order polynomial fit
-   
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   
+
 // Print everything on screen
    c3->cd();
    gr1->Fit("g1");
