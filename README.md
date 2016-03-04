@@ -7,7 +7,7 @@ Some code comes or is adapted from Giuseppe Della Ricca's lectures website: http
 
 LICENSE:
 © 2016 Giuseppe Della Ricca - All rights reserved.
-© 2016 Emanuele Ballarin - All rights reserved.
+<br />© 2016 Emanuele Ballarin - All rights reserved.
 
 Permissions beyond the scope of this license could be obtained by directly contacting the Authors.
 
