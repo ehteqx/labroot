@@ -6,7 +6,9 @@ double fitfunc(double* x, double* p) {		// USER-DEFINED FIT ROUTINE
 
    double fitval;
 
-// Modify as needed: x[0] = x value; p[i] = i-th parameter // EDIT ALSO THE LINE WITH ### (Guesses and Names)
+// Modify as needed: x[0] = x value; p[i] = i-th parameter
+// EDIT ALSO THE LINE WITH ### (Guesses and Names)
+
 //	EXPONENTIAL:
 //	fitval = p[0] + exp(p[1] +(x[0])*(p[2]));	// PARAM: 3
 //	LINEAR:
