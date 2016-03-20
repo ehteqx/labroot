@@ -6,13 +6,7 @@ double fitfunc(double* x, double* p) {		// USER-DEFINED FIT ROUTINE
 
    double fitval;
 
-// Modify as needed: x[0] = x value; p[i] = i-th parameter // EDIT ALSO THE LINE WITH ### (Guesses and Names)
-//	EXPONENTIAL:
-//	fitval = p[0] + exp(p[1] +(x[0])*(p[2]));		// PARAM: 3
-//	LINEAR:
-//	fitval = p[0] + x[0] * p[1];	// PARAM: 2
-// 	HYPERB.
-   fitval = p[0] + p[1]/(x[0]*p[2])**2;
+fitval = ((p[0])*(((-1.0)*(p[1]))+(x[0]))/(((-1.0)*(p[1])) + ((-1.0)*(p[0])) + (x[0]))) + p[2];
 
    return fitval;
 
@@ -55,11 +49,11 @@ void fitx() {		// DATA-INPUT ROUTINE
 
    TGraphErrors* gr = new TGraphErrors(npt, x1, x2, x3, x4);		// Add here (eventually) error on x-es
 
-   TF1* f1 = new TF1("f1", fitfunc, 0.00, 10.00, 3);	// LAST NUMBER --> Number of parameters to fit
+   TF1* f1 = new TF1("f1", fitfunc, 0.00, 130.00, 3);	// LAST NUMBER --> Number of parameters to fit
 
    // INITIAL GUESSES AND PARAMETER NAMES ################################################################
-   f1->SetParameters(1.0, 1.0, 1.0);
-   f1->SetParNames("y off", "xmult", "xexp");
+   f1->SetParameters(1.0, 1.0, 1.0, 1.0);
+   f1->SetParNames("ampl.:", "x.off.n.:", "y.off.:");
 
    // Print first graph (Points, Fit, Errors)
    gStyle->SetOptFit(kTRUE);
@@ -77,19 +71,7 @@ void fitx() {		// DATA-INPUT ROUTINE
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  TH1F* h1 = new TH1F("h1", "Regression Residues", 20, -10.0, 10.0); // Graph of regression residues (n°BINS, START, STOP)
-
-/* +++ +++ WITH ERROR ON X AND Y +++ +++
-
-float x4b[mpt]
-
-for (int i=0; i < npt; i++) {
-     x4b[i] = TMath::Sqrt(x4[i]*x4[i] + x3[i]*f1->Derivative(x1[i])*x3[i]*f1->Derivative(x1[i]))
-     float resid = (x2[i]-f1->Eval(x1[i]))/x4[i];
-     h1->Fill(resid);
-   }
-*/
-
+  TH1F* h1 = new TH1F("h1", "Regression Residues", 5, -3.0, 3.0); // Graph of regression residues (n°BINS, START, STOP)
 
    for (int i=0; i < npt; i++) {
      float resid = (x2[i]-f1->Eval(x1[i]))/x4[i];
@@ -117,11 +99,7 @@ for (int i=0; i < npt; i++) {
 
    TGraphErrors* gr1 = new TGraphErrors(npt, x1, y2, 0, x4);	// Add here (eventually) error on x-es
 
-/*
-TGraphErrors* gr1 = new TGraphErrors(npt, x1, y2, 0, x4);	// WITH ERROR ON X AND Y
-*/
-
-   TF1 *g1 = new TF1("g1", "pol1", 0.00, 10.00);	// First-order polynomial fit
+   TF1 *g1 = new TF1("g1", "pol1", 0.00, 130.00);	// First-order polynomial fit
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

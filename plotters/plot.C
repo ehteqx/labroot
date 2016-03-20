@@ -5,6 +5,7 @@ void plot() {
    float x1[mpt];
    float x2[mpt];
    float x3[mpt];
+   float x4[mpt];
 
    int npt = 0;
 
@@ -14,11 +15,11 @@ void plot() {
 
    while ( kTRUE ) {
 
-      in >> x1[npt] >> x2[npt] >> x3[npt];
+      in >> x1[npt] >> x2[npt] >> x3[npt] >> x4[npt];
 
       if ( ! in.good() ) break;
 
-      cout << "x = " << x1[npt] << " y = " << x2[npt] << " ey = " << x3[npt]  << endl;
+      cout << "x = " << x1[npt] << " y = " << x2[npt] << " ex = " << x3[npt] << " ey = " << x4[npt] << endl;
 
       npt++;
 
@@ -30,7 +31,7 @@ void plot() {
 
    TCanvas* c1 = new TCanvas("c1", "c1", 0, 0, 500, 500);
 
-   TGraphErrors* gr = new TGraphErrors(npt, x1, x2, 0, x3);
+   TGraphErrors* gr = new TGraphErrors(npt, x1, x2, x3, x4);
 
    gStyle->SetOptStat(kTRUE);
 
