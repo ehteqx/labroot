@@ -4,7 +4,7 @@ void retta() {
   ofstream out;
   out.open("dat.txt");
 
-  for ( int i = 0; i < 50; i++ ) {
+  for (int i = 0; i < 50; i++) {
 
     float x = 2.0 + 1.0 * i + gRandom->Gaus(0.0, 0.5);
 
@@ -15,9 +15,7 @@ void retta() {
     cout << "x = " << x << " y = " << y << " ey = " << ey << endl;
 
     out << x << " " << y << " " << ey << endl;
-
   }
 
   out.close();
-
 }
