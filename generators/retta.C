@@ -18,4 +18,5 @@ void retta() {
   }
 
   out.close();
+
 }
